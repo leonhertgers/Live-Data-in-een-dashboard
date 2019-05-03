@@ -25,10 +25,9 @@
 	};
 
 
-	32321
 	//download the data
 	myConnector.getData = function(table, doneCallback) {
-		$.getJSON("https://stanronzhin.github.io/terugmeld/data.json", function(resp) {
+		$.getJSON("https://github.com/leonhertgers/Live-Data-in-een-dashboard/data.json", function(resp) {
 			var feat = resp.features,
 				tableData = [];
 
@@ -38,6 +37,7 @@
 					"basisregistratie": feat[i].properties.basisregistratie,
 					"bronhoudernaam": feat[i].properties.bronhoudernaam,
 					"status": feat[i].properties.status
+
 				});
 			}
 
