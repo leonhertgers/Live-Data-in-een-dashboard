@@ -24,6 +24,8 @@
 		schemaCallback([tableSchema]);
 	};
 
+
+	32321
 	//download the data
 	myConnector.getData = function(table, doneCallback) {
 		$.getJSON("https://stanronzhin.github.io/terugmeld/data.json", function(resp) {
