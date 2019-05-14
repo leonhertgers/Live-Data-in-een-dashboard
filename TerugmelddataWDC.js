@@ -27,7 +27,7 @@
 
 	//download the data
 	myConnector.getData = function(table, doneCallback) {
-		$.getJSON("https://leonhertgers.github.io/Live-Data-in-een-dashboard/data.json", function(resp) {
+		$.getJSON("http://CORS-Anywhere.HerokuApp.com/https://api.acceptatie.kadaster.nl/tms/v1/terugmeldingen?apikey=l71c0911dd8fe14be1abba40a2f4ba3e69", function(resp) {
 			var feat = resp.features,
 				tableData = [];
 
