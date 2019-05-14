@@ -27,7 +27,7 @@
 
 	//download the data
 	myConnector.getData = function(table, doneCallback) {
-		$.getJSON("https://github.com/leonhertgers/Live-Data-in-een-dashboard/data.json", function(resp) {
+		$.getJSON("https://leonhertgers.github.io/Live-Data-in-een-dashboard/data.json", function(resp) {
 			var feat = resp.features,
 				tableData = [];
 
