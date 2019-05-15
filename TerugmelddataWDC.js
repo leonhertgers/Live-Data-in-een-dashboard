@@ -17,7 +17,6 @@
 			id: "geometry",
 			alias: "geographical location",
 			dataType: tableau.dataTypeEnum.geometry
-		}
 		}];
 
 		var tableSchema = {
