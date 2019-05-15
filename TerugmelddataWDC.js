@@ -14,7 +14,7 @@
 			id: "status",
 			dataType: tableau.dataTypeEnum.string
 		}, {
-                        id: "location",
+                        id: "geometry",
                         alias: "geographical location",
                         dataType: tableau.dataTypeEnum.geometry
                   }];
@@ -43,7 +43,7 @@
 					"basisregistratie": feat[i].properties.basisregistratie,
 					"bronhoudernaam": feat[i].properties.bronhoudernaam,
 					"status": feat[i].properties.status,
-					"location": wkt_data.toJson()
+					"geometry": wkt_data.toJson()
 
 				});
 			}
