@@ -31,7 +31,7 @@
 
 	//download the data
 	myConnector.getData = function(table, doneCallback) {
-		$.getJSON("https://leonhertgers.github.io:443/Live-Data-in-een-dashboard/Terugmelddata_HTML.html", function(resp) {
+		$.getJSON("https://leonhertgers.github.io/live-data-in-een-dashboard/data.json", function(resp) {
 			var feat = resp.features,
 				tableData = [];
 
