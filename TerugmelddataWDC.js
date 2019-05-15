@@ -13,11 +13,7 @@
 		}, {
 			id: "status",
 			dataType: tableau.dataTypeEnum.string
-		}, {
-                        id: "geometry",
-                        alias: "geographical location",
-                        dataType: tableau.dataTypeEnum.geometry
-                  }];
+		}];
 
 		var tableSchema = {
 			id: "Terugmelddata",
@@ -37,13 +33,12 @@
 
 			// Iterate over the JSON object
 			for (var i = 0, len = feat.length; i < len; i++) {
-				var wkt_data = new Wkt.Wkt();
-                                    wkt_data.read(feat[i].wkt.value);
+				
 				tableData.push({
 					"basisregistratie": feat[i].properties.basisregistratie,
 					"bronhoudernaam": feat[i].properties.bronhoudernaam,
 					"status": feat[i].properties.status,
-					"geometry": wkt_data.toJson()
+					
 
 				});
 			}
