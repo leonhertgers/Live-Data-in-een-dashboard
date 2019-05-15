@@ -43,7 +43,7 @@
 				tableData.push({
 					"basisregistratie": feat[i].properties.basisregistratie,
 					"bronhoudernaam": feat[i].properties.bronhoudernaam,
-					"status": feat[i].properties.status
+					"status": feat[i].properties.status,
 					"geometry": wkt_data.toJson()
 				});
 			}
