@@ -1,3 +1,4 @@
+
 (function () {
 	//Create the connector
     var myConnector = tableau.makeConnector();
@@ -13,7 +14,10 @@
 		}, {
 			id: "status",
 			dataType: tableau.dataTypeEnum.string
-		}];
+		}, {	id: "geometry",
+                        alias: "geographical location",
+                        dataType: tableau.dataTypeEnum.geometry
+		   }];
 
 		var tableSchema = {
 			id: "Terugmelddata",
