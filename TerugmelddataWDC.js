@@ -43,7 +43,7 @@
 					"basisregistratie": feat[i].properties.basisregistratie,
 					"bronhoudernaam": feat[i].properties.bronhoudernaam,
 					"status": feat[i].properties.status,
-					"geometry": feat[i].properties.geometry | reproject --use-epsg-io --from=EPSG:28992 --to=EPSG:4326
+					"geometry": (feat[i].properties.geometry | reproject --use-epsg-io --from=EPSG:28992 --to=EPSG:4326)
 
 				});
 			}
