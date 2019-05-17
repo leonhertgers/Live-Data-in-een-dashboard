@@ -2,7 +2,7 @@ import reproject from "reproject";
 
 (function () {
 	//Create the connector
-	var myConnector = tableau.makeConnector();
+    var myConnector = tableau.makeConnector();
 
 	myConnector.getSchema = function (schemaCallback) {
 		var cols = [{
@@ -16,9 +16,9 @@ import reproject from "reproject";
 			id: "status",
 			dataType: tableau.dataTypeEnum.string
 		}, {	id: "geometry",
-			alias: "geographical location",
-			dataType: tableau.dataTypeEnum.geometry
-		}];
+                        alias: "geographical location",
+                        dataType: tableau.dataTypeEnum.geometry
+		   }];
 
 		var tableSchema = {
 			id: "Terugmelddata",
@@ -39,14 +39,14 @@ import reproject from "reproject";
 
 			// Iterate over the JSON object
 			for (var i = 0, len = feat.length; i < len; i++) {
-
+				
 				tableData.push({
 					"basisregistratie": feat[i].properties.basisregistratie,
 					"bronhoudernaam": feat[i].properties.bronhoudernaam,
 					"status": feat[i].properties.status,
 					"geometry": feat[i].properties.geometry | reproject --use-epsg-io --from=EPSG:28992 --to=EPSG:4326
 
-			});
+				});
 			}
 
 			table.appendRows(tableData);
@@ -54,14 +54,12 @@ import reproject from "reproject";
 		});
 	};
 
-	tableau.registerConnector(myConnector);
+    tableau.registerConnector(myConnector);
 })();
 
 $(document).ready(function () {
-	$("#submitButton").click(function () {
-		tableau.connectionName = "BAG Terugmelddata";
-		tableau.submit();
-	});
+    $("#submitButton").click(function () {
+        tableau.connectionName = "BAG Terugmelddata";
+        tableau.submit();
+    });
 });
-
-
