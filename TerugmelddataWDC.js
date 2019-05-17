@@ -1,4 +1,4 @@
-import reproject
+import {reproject} from "reproject"
 
 (function () {
 	//Create the connector
