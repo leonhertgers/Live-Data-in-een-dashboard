@@ -1,9 +1,30 @@
-// import {toWGS84} from "./index.js";
+// import {index} from "./index.js";
 // const reproj = require("./index.js")
 
+scriptLoader('./index.js');
 
-
-
+ function scriptLoader(path, callback)
+ {
+	 var script = document.createElement('script');
+	 script.type = "text/javascript";
+	 script.async = true;
+	 script.src = path;
+	 script.onload = function(){
+		 if(typeof(callback) == "function")
+		 {
+			 callback();
+		 }
+	 }
+	 try
+	 {
+		 var scriptOne = document.getElementsByTagName('script')[0];
+		 scriptOne.parentNode.insertBefore(script, scriptOne);
+	 }
+	 catch(e)
+	 {
+		 document.getElementsByTagName("head")[0].appendChild(script);
+	 }
+ }
 
 (function () {
 	//Create the connector
@@ -35,60 +56,60 @@
 		schemaCallback([tableSchema]);
 	};
 
-	function RD2WGS84(x, y) {
-		if (x < 1000) {
-			x *= 1000;
-		}
-		if (y < 1000) {
-			y *= 1000;
-		}
-		var invalidX = (x < 0 || x > 290000);
-		if (invalidX) {
-			alert("x must be between 0 and 290,000");
-		}
-		var invalidY = (y <290000 || y > 630000);
-		if (invalidY) {
-			alert("y must be between 290,000 and 630,000,");
-		}
-		if (!invalidX && !invalidY) {
-			var latLng = DoTheMath(x,y);
-			return latLng;
-		}
-	}
-
-	function DoTheMath(x,y) {
-		var x0  = 155000.000;
-		var y0  = 463000.000;
-		var f0 = 52.156160556;
-		var l0 =  5.387638889;
-		var a01=3236.0331637 ; var b10=5261.3028966;
-		var a20= -32.5915821 ; var b11= 105.9780241;
-		var a02=  -0.2472814 ; var b12=   2.4576469;
-		var a21=  -0.8501341 ; var b30=  -0.8192156;
-		var a03=  -0.0655238 ; var b31=  -0.0560092;
-		var a22=  -0.0171137 ; var b13=   0.0560089;
-		var a40=   0.0052771 ; var b32=  -0.0025614;
-		var a23=  -0.0003859 ; var b14=   0.0012770;
-		var a41=   0.0003314 ; var b50=   0.0002574;
-		var a04=   0.0000371 ; var b33=  -0.0000973;
-		var a42=   0.0000143 ; var b51=   0.0000293;
-		var a24=  -0.0000090 ; var b15=   0.0000291;
-
-		var dx=(x-x0);
-	var dy=(y-y0);
-
-	var df =a01*dy + a20 + a02 + a21 + a03;
-	df+=a40 + a22 + a04 + a41;
-	df+=a23 + a42 + a24;
-	var f = f0 + df/3600;
-
-	var dl =b10*dx +b11*dx*dy +b30 + b12*dx + b31;
-	dl+=b13*dx + b32 + b14*dx;
-	dl+=b51 +b33 + b15*dx;
-	var l = l0 + dl/3600
-
-	return [f, l];
-	}
+	// function RD2WGS84(x, y) {
+	// 	if (x < 1000) {
+	// 		x *= 1000;
+	// 	}
+	// 	if (y < 1000) {
+	// 		y *= 1000;
+	// 	}
+	// 	var invalidX = (x < 0 || x > 290000);
+	// 	if (invalidX) {
+	// 		alert("x must be between 0 and 290,000");
+	// 	}
+	// 	var invalidY = (y <290000 || y > 630000);
+	// 	if (invalidY) {
+	// 		alert("y must be between 290,000 and 630,000,");
+	// 	}
+	// 	if (!invalidX && !invalidY) {
+	// 		var latLng = DoTheMath(x,y);
+	// 		return latLng;
+	// 	}
+	// }
+	//
+	// function DoTheMath(x,y) {
+	// 	var x0  = 155000.000;
+	// 	var y0  = 463000.000;
+	// 	var f0 = 52.156160556;
+	// 	var l0 =  5.387638889;
+	// 	var a01=3236.0331637 ; var b10=5261.3028966;
+	// 	var a20= -32.5915821 ; var b11= 105.9780241;
+	// 	var a02=  -0.2472814 ; var b12=   2.4576469;
+	// 	var a21=  -0.8501341 ; var b30=  -0.8192156;
+	// 	var a03=  -0.0655238 ; var b31=  -0.0560092;
+	// 	var a22=  -0.0171137 ; var b13=   0.0560089;
+	// 	var a40=   0.0052771 ; var b32=  -0.0025614;
+	// 	var a23=  -0.0003859 ; var b14=   0.0012770;
+	// 	var a41=   0.0003314 ; var b50=   0.0002574;
+	// 	var a04=   0.0000371 ; var b33=  -0.0000973;
+	// 	var a42=   0.0000143 ; var b51=   0.0000293;
+	// 	var a24=  -0.0000090 ; var b15=   0.0000291;
+	//
+	// 	var dx=(x-x0);
+	// var dy=(y-y0);
+	//
+	// var df =a01*dy + a20 + a02 + a21 + a03;
+	// df+=a40 + a22 + a04 + a41;
+	// df+=a23 + a42 + a24;
+	// var f = f0 + df/3600;
+	//
+	// var dl =b10*dx +b11*dx*dy +b30 + b12*dx + b31;
+	// dl+=b13*dx + b32 + b14*dx;
+	// dl+=b51 +b33 + b15*dx;
+	// var l = l0 + dl/3600
+	//
+	// return [f, l];
+	// }
 
 	//download the data
 	myConnector.getData = function(table, doneCallback) {
@@ -104,8 +125,8 @@
 					"basisregistratie": feat[i].properties.basisregistratie,
 					"bronhoudernaam": feat[i].properties.bronhoudernaam,
 					"status": feat[i].properties.status,
-					"geometry": RD2WGS84(feat[i].properties.geometry.coordinates[0], feat[i].properties.geometry.coordinates[1])
-					// "geometry": reproj.toWGS84(feat[i].properties.geometry, 'EPSG:28992', epsg)
+					//"geometry": RD2WGS84(feat[i].properties.geometry.coordinates[0], feat[i].properties.geometry.coordinates[1])
+					 "geometry": reproj.toWGS84(feat[i].properties.geometry, 'EPSG:28992', epsg)
 				});
 			}
 
