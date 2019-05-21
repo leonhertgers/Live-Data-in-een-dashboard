@@ -1,4 +1,4 @@
-import {toWGS84} from "reproject";
+import {toWGS84} from "index.js";
 
 (function () {
 	//Create the connector
