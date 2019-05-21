@@ -1,4 +1,5 @@
-import {toWGS84} from "index.js";
+// import {toWGS84} from "index.js";
+const reproj = require("./index.js")
 
 (function () {
 	//Create the connector
@@ -46,7 +47,7 @@ import {toWGS84} from "index.js";
 					"bronhoudernaam": feat[i].properties.bronhoudernaam,
 					"status": feat[i].properties.status,
 					// "geometry": feat[i].properties.geometry | reproject --use-epsg-io --from=EPSG:28992 --to=EPSG:4326
-					"geometry": toWGS84(feat[i].properties.geometry, 'EPSG:28992', epsg)
+					"geometry": reproj.toWGS84(feat[i].properties.geometry, 'EPSG:28992', epsg)
 				});
 			}
 
