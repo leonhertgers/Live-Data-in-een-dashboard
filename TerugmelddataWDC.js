@@ -74,17 +74,17 @@
 		var a42=   0.0000143 ; var b51=   0.0000293;
 		var a24=  -0.0000090 ; var b15=   0.0000291;
 
-		var dx=(x-x0)*<span class="skimlinks-unlinked">Math.pow(10,-5</span>);
-	var dy=(y-y0)*<span class="skimlinks-unlinked">Math.pow(10,-5</span>);
+		var dx=(x-x0);
+	var dy=(y-y0);
 
-	var df =a01*dy + a20*<span class="skimlinks-unlinked">Math.pow(dx,2</span>) + a02*<span class="skimlinks-unlinked">Math.pow(dy,2</span>) + a21*<span class="skimlinks-unlinked">Math.pow(dx,2)*dy</span> + a03*<span class="skimlinks-unlinked">Math.pow(dy,3</span>);
-	df+=a40*<span class="skimlinks-unlinked">Math.pow(dx,4</span>) + a22*<span class="skimlinks-unlinked">Math.pow(dx,2)*Math.pow(dy,2</span>) + a04*<span class="skimlinks-unlinked">Math.pow(dy,4</span>) + a41*<span class="skimlinks-unlinked">Math.pow(dx,4)*dy</span>;
-	df+=a23*<span class="skimlinks-unlinked">Math.pow(dx,2)*Math.pow(dy,3</span>) + a42*<span class="skimlinks-unlinked">Math.pow(dx,4)*Math.pow(dy,2</span>) + a24*<span class="skimlinks-unlinked">Math.pow(dx,2)*Math.pow(dy,4</span>);
+	var df =a01*dy + a20 + a02 + a21 + a03;
+	df+=a40 + a22 + a04 + a41;
+	df+=a23 + a42 + a24;
 	var f = f0 + df/3600;
 
-	var dl =b10*dx +b11*dx*dy +b30*<span class="skimlinks-unlinked">Math.pow(dx,3</span>) + b12*dx*<span class="skimlinks-unlinked">Math.pow(dy,2</span>) + b31*<span class="skimlinks-unlinked">Math.pow(dx,3)*dy</span>;
-	dl+=b13*dx*<span class="skimlinks-unlinked">Math.pow(dy,3)+b50*Math.pow(dx,5</span>) + b32*<span class="skimlinks-unlinked">Math.pow(dx,3)*Math.pow(dy,2</span>) + b14*dx*<span class="skimlinks-unlinked">Math.pow(dy,4</span>);
-	dl+=b51*<span class="skimlinks-unlinked">Math.pow(dx,5)*dy</span> +b33*<span class="skimlinks-unlinked">Math.pow(dx,3)*Math.pow(dy,3</span>) + b15*dx*<span class="skimlinks-unlinked">Math.pow(dy,5</span>);
+	var dl =b10*dx +b11*dx*dy +b30 + b12*dx + b31;
+	dl+=b13*dx + b32 + b14*dx;
+	dl+=b51 +b33 + b15*dx;
 	var l = l0 + dl/3600
 
 	return [f, l];
