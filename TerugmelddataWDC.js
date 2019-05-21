@@ -1,5 +1,5 @@
-// import {toWGS84} from "index.js";
-const reproj = require("./index.js")
+import {toWGS84} from "./index.js";
+// const reproj = require("./index.js")
 
 (function () {
 	//Create the connector
