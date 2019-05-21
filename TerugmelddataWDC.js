@@ -1,4 +1,4 @@
-import reproject from "reproject";
+import {toWGS84} from "reproject";
 
 (function () {
 	//Create the connector
@@ -15,9 +15,10 @@ import reproject from "reproject";
 		}, {
 			id: "status",
 			dataType: tableau.dataTypeEnum.string
-		}, {	id: "geometry",
-                        alias: "geographical location",
-                        dataType: tableau.dataTypeEnum.geometry
+		}, {
+			id: "geometry",
+			alias: "geographical location",
+			dataType: tableau.dataTypeEnum.geometry
 		   }];
 
 		var tableSchema = {
@@ -36,7 +37,7 @@ import reproject from "reproject";
 //               $.getJSON("https://api.acceptatie.kadaster.nl/tms/v1/terugmeldingen?apikey=l71c0911dd8fe14be1abba40a2f4ba3e69", function(resp) {
 			var feat = resp.features,
 				tableData = [];
-
+			var epsg = require('epsg');
 			// Iterate over the JSON object
 			for (var i = 0, len = feat.length; i < len; i++) {
 				
@@ -44,8 +45,8 @@ import reproject from "reproject";
 					"basisregistratie": feat[i].properties.basisregistratie,
 					"bronhoudernaam": feat[i].properties.bronhoudernaam,
 					"status": feat[i].properties.status,
-					"geometry": feat[i].properties.geometry | reproject --use-epsg-io --from=EPSG:28992 --to=EPSG:4326
-
+					// "geometry": feat[i].properties.geometry | reproject --use-epsg-io --from=EPSG:28992 --to=EPSG:4326
+					"geometry": toWGS84(feat[i].properties.geometry, 'EPSG:28992', epsg)
 				});
 			}
 
