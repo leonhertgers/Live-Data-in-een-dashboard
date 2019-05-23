@@ -29,7 +29,7 @@
 
 	//download the data
 	myConnector.getData = function(table, doneCallback) {
-		$.getJSON("https://stanronzhin.github.io/terugmeld/data.json", function(resp) {
+		$.getJSON("https://leonhertgers.github.io/live-data-in-een-dashboard/data.json", function(resp) {
 			var feat = resp.features;
 			tableData = [];
 			tableau.log(feat);
