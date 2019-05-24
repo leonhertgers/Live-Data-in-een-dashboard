@@ -21,7 +21,7 @@
 			datatype: tableau.dataTypeEnum.int
 		}, {
 			id: "tijdstipRegistratie",
-			datatype: tableau.dataTypeEnum.string
+			datatype: tableau.dataTypeEnum.dateTime
 		}
 
 		];
@@ -45,6 +45,7 @@
 			for (var i = 0, len = feat.length; i < len; i++) {
 				var dateFormat = "DD-MM-YYYY";
 				var tijdstipRegistratie = moment(feat[i].tijdstipRegistratie.value).format(dateFormat);
+
                 var coordRD = feat[i].geometry.coordinates;
                 var coordWGS =  proj4('EPSG:28992', 'WGS84', coordRD);
                 var geoJson = '{"type":"Point","coordinates":' + JSON.stringify(coordWGS) + '}';
