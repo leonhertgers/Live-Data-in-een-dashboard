@@ -27,10 +27,10 @@
 
 		];
 
-		var tableSchema = {
-			id: "Terugmelddata",
-			columns: cols
-		};
+	//	var tableSchema = {
+	//		id: "Terugmelddata",
+	//		columns: cols
+	//	};
 
 		schemaCallback([tableSchema]);
 	};
@@ -44,9 +44,9 @@
 
             // Iterate over the JSON object
 			for (var i = 0, len = feat.length; i < len; i++) {
-				var dateFormat = "DD-MM-YYYY";
-				var tijdstipRegistratie = moment(feat[i].tijdstipRegistratie.value).format(dateFormat);
-
+			//	var dateFormat = "DD-MM-YYYY";
+			//	var tijdstipRegistratie = moment(feat[i].tijdstipRegistratie.value).format(dateFormat);
+//
                 var coordRD = feat[i].geometry.coordinates;
                 var coordWGS =  proj4('EPSG:28992', 'WGS84', coordRD);
                 var geoJson = '{"type":"Point","coordinates":' + JSON.stringify(coordWGS) + '}';
@@ -61,7 +61,7 @@
 					"status": feat[i].properties.status,
                     "location": wkt_data.toJson(),
 				//	"meldingsNummer": feat[i].properties.meldingsNummer,
-					"tijdstipRegistratie": tijdstipRegistratie
+				//	"tijdstipRegistratie": tijdstipRegistratie
 				});
 			}
             tableau.log(tableData);
