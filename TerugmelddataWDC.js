@@ -14,8 +14,8 @@
 			id: "status",
 			dataType: tableau.dataTypeEnum.string
 		}, {
-			id: "meldingsNummer",
-			datatype: tableau.dataTypeEnum.int
+			id: "omschrijving",
+			datatype: tableau.dataTypeEnum.string
 		},
 			{
             id: "location",
@@ -60,7 +60,7 @@
 					"basisregistratie": feat[i].properties.basisregistratie,
 					"bronhoudernaam": feat[i].properties.bronhoudernaam,
 					"status": feat[i].properties.status,
-					"meldingsNummer": feat[i].properties.meldingsNummer,
+					"omschrijving": feat[i].properties.omschrijving,
 					"location": wkt_data.toJson()
 					//,
 				//	"tijdstipRegistratie": tijdstipRegistratie
