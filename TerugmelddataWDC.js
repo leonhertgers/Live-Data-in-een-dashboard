@@ -16,21 +16,21 @@
 		}, {
             id: "location",
             dataType: tableau.dataTypeEnum.geometry
-		},// {
+		}//, {
 			//id: "meldingsNummer",
 			//datatype: tableau.dataTypeEnum.int
 		//},
-			{
-			id: "tijdstipRegistratie",
-			datatype: tableau.dataTypeEnum.dateTime
-		}
+	//		{
+	//		id: "tijdstipRegistratie",
+	//		datatype: tableau.dataTypeEnum.dateTime
+	//	}
 
 		];
 
-	//	var tableSchema = {
-	//		id: "Terugmelddata",
-	//		columns: cols
-	//	};
+		var tableSchema = {
+			id: "Terugmelddata",
+			columns: cols
+		};
 
 		schemaCallback([tableSchema]);
 	};
