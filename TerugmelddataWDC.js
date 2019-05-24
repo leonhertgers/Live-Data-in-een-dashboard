@@ -15,7 +15,7 @@
 			dataType: tableau.dataTypeEnum.string
 		}, {
 			id: "meldingsNummer",
-			datatype: tableau.dataTypeEnum.int
+			datatype: tableau.dataTypeEnum.float
 		},
 			{
             id: "location",
