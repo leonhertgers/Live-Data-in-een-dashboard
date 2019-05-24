@@ -16,11 +16,18 @@
 		}, {
             id: "location",
             dataType: tableau.dataTypeEnum.geometry
-		}];
+		}, {
+			id: "meldingsNummer",
+			datatype: tableau.dataTypeEnum.int
+		}, {
+			id: "tijdstipRegistratie",
+			datatype: tableau.dataTypeEnum.dateTime
+		}
+
+		];
 
 		var tableSchema = {
 			id: "Terugmelddata",
-			alias: "Test",
 			columns: cols
 		};
 
@@ -36,7 +43,8 @@
 
             // Iterate over the JSON object
 			for (var i = 0, len = feat.length; i < len; i++) {
-
+				var dateFormat = "Y-MM-DD HH:mm:ss";
+				var beginPand = moment(feat[i].beginPand.value).format(dateFormat);
                 var coordRD = feat[i].geometry.coordinates;
                 var coordWGS =  proj4('EPSG:28992', 'WGS84', coordRD);
                 var geoJson = '{"type":"Point","coordinates":' + JSON.stringify(coordWGS) + '}';
@@ -49,7 +57,9 @@
 					"basisregistratie": feat[i].properties.basisregistratie,
 					"bronhoudernaam": feat[i].properties.bronhoudernaam,
 					"status": feat[i].properties.status,
-                    "location": wkt_data.toJson()
+                    "location": wkt_data.toJson(),
+					"meldingsNummer": feat[i].properties.meldingsNummer,
+					"tijdstipRegistratie": beginPand, moment().format(dateFormat)
 				});
 			}
             tableau.log(tableData);
