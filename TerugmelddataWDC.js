@@ -14,17 +14,18 @@
 			id: "status",
 			dataType: tableau.dataTypeEnum.string
 		}, {
-            id: "location",
-            dataType: tableau.dataTypeEnum.geometry
-		}, {
 			id: "meldingsNummer",
 			datatype: tableau.dataTypeEnum.int
 		},
+			{
+            id: "location",
+            dataType: tableau.dataTypeEnum.geometry
+		}
 	//		{
 	//		id: "tijdstipRegistratie",
 	//		datatype: tableau.dataTypeEnum.dateTime
 	//	}
-
+// <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js" type="text/javascript"></script>
 		];
 
 		var tableSchema = {
@@ -59,8 +60,9 @@
 					"basisregistratie": feat[i].properties.basisregistratie,
 					"bronhoudernaam": feat[i].properties.bronhoudernaam,
 					"status": feat[i].properties.status,
-                    "location": wkt_data.toJson(),
-					"meldingsNummer": feat[i].properties.meldingsNummer//,
+					"meldingsNummer": feat[i].properties.meldingsNummer,
+					"location": wkt_data.toJson()
+					//,
 				//	"tijdstipRegistratie": tijdstipRegistratie
 				});
 			}
