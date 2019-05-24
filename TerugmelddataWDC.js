@@ -16,10 +16,10 @@
 		}, {
             id: "location",
             dataType: tableau.dataTypeEnum.geometry
-		}//, {
-			//id: "meldingsNummer",
-			//datatype: tableau.dataTypeEnum.int
-		//},
+		}, {
+			id: "meldingsNummer",
+			datatype: tableau.dataTypeEnum.int
+		},
 	//		{
 	//		id: "tijdstipRegistratie",
 	//		datatype: tableau.dataTypeEnum.dateTime
@@ -60,7 +60,7 @@
 					"bronhoudernaam": feat[i].properties.bronhoudernaam,
 					"status": feat[i].properties.status,
                     "location": wkt_data.toJson(),
-				//	"meldingsNummer": feat[i].properties.meldingsNummer,
+					"meldingsNummer": feat[i].properties.meldingsNummer//,
 				//	"tijdstipRegistratie": tijdstipRegistratie
 				});
 			}
