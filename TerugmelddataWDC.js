@@ -13,10 +13,8 @@
 		}, {
 			id: "status",
 			dataType: tableau.dataTypeEnum.string
-		}, {
-			id: "bronhoudercode",
-			datatype: tableau.dataTypeEnum.string
 		},
+
 			{
             id: "location",
             dataType: tableau.dataTypeEnum.geometry
@@ -60,7 +58,7 @@
 					"basisregistratie": feat[i].properties.basisregistratie,
 					"bronhoudernaam": feat[i].properties.bronhoudernaam,
 					"status": feat[i].properties.status,
-					"bronhoudercode": feat[i].properties.bronhoudercode,
+					
 					"location": wkt_data.toJson()
 					//,
 				//	"tijdstipRegistratie": tijdstipRegistratie
