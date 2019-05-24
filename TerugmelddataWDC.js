@@ -44,7 +44,7 @@
             // Iterate over the JSON object
 			for (var i = 0, len = feat.length; i < len; i++) {
 				var dateFormat = "Y-MM-DD HH:mm:ss";
-				var beginPand = moment(feat[i].beginPand.value).format(dateFormat);
+				var tijdstipRegistratie = moment(feat[i].tijdstipRegistratie.value).format(dateFormat);
                 var coordRD = feat[i].geometry.coordinates;
                 var coordWGS =  proj4('EPSG:28992', 'WGS84', coordRD);
                 var geoJson = '{"type":"Point","coordinates":' + JSON.stringify(coordWGS) + '}';
@@ -59,7 +59,7 @@
 					"status": feat[i].properties.status,
                     "location": wkt_data.toJson(),
 					"meldingsNummer": feat[i].properties.meldingsNummer,
-					"tijdstipRegistratie": beginPand, moment().format(dateFormat)
+					"tijdstipRegistratie": tijdstipRegistratie
 				});
 			}
             tableau.log(tableData);
