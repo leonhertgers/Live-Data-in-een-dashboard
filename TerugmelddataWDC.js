@@ -87,7 +87,7 @@ $(document).ready(function() {
 
 		};
 
-	//	function isValidDate(dateStr) {
+	//	function isValidChoise(dateStr) {
 	//		var d = new Date(dateStr);
 	//		return !isNaN(d.getDate());
 	//	}
