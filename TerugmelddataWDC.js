@@ -38,7 +38,10 @@
 
 	//download the data
 	myConnector.getData = function(table, doneCallback) {
-		$.getJSON("https://leonhertgers.github.io/Live-Data-in-een-dashboard/data.json", function(resp) {
+			var dateObj = JSON.parse(tableau.connectionData),
+			dateString = "starttime=" + dateObj.startDate,
+			apiCall = "https://leonhertgers.github.io/Live-Data-in-een-dashboard/data.json" + dateString;
+			$.getJSON(apiCall, function(resp) {
 			
 			var feat = resp.features;
 			tableData = [];
@@ -77,10 +80,29 @@
 	tableau.registerConnector(myConnector);
 })();
 
-$(document).ready(function () {
-	$("#submitButton").click(function () {
-		tableau.connectionName = "BAG Terugmelddata";
-		tableau.submit();
+$(document).ready(function() {
+	$("#submitButton").click(function() {
+		var dateObj = {
+			startDate: $('#start-date-one').val().trim(),
+
+		};
+
+	//	function isValidDate(dateStr) {
+	//		var d = new Date(dateStr);
+	//		return !isNaN(d.getDate());
+	//	}
+
+	//	if (isValidDate(dateObj.startDate)) {
+			tableau.connectionData = JSON.stringify(dateObj);
+			tableau.connectionName = "BAG terugmelddata";
+			tableau.submit();
+	//	} else {
+	//		$('#errorMsg').html("Enter valid basisregistratie, for example: BAG, BRT");
+	//	}
 	});
 });
+
+
+
+
 
