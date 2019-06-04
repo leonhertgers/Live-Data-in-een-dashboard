@@ -93,7 +93,7 @@ $(document).ready(function() {
 	//	}
 
 	//	if (isValidDate(dateObj.startDate)) {
-			tableau.connectionData = JSON.stringify(dateObj);
+			tableau.connectionData = JSON.stringify(Basisregistratie_keus);
 			tableau.connectionName = "BAG terugmelddata";
 			tableau.submit();
 	//	} else {
