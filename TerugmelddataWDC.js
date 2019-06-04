@@ -13,10 +13,10 @@
 		}, {
 			id: "status",
 			dataType: tableau.dataTypeEnum.string
-		},// {
-			//id: "omschrijving",
-		//	datatype: tableau.dataTypeEnum.string
-	//	},
+		}, {
+			id: "omschrijving",
+			datatype: tableau.dataTypeEnum.string
+		},
 			{
 				id: "location",
 				dataType: tableau.dataTypeEnum.geometry
@@ -61,7 +61,7 @@
 					"basisregistratie": feat[i].properties.basisregistratie,
 					"bronhoudernaam": feat[i].properties.bronhoudernaam,
 					"status": feat[i].properties.status,
-				//	"omschrijving": feat[i].omschrijving,
+					"omschrijving": feat[i].omschrijving,
 					"location": wkt_data.toJson()
 					//,
 					//	"tijdstipRegistratie": tijdstipRegistratie
