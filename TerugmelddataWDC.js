@@ -21,10 +21,11 @@
 				id: "location",
 				dataType: tableau.dataTypeEnum.geometry
 			}
-			//		{
-			//		id: "tijdstipRegistratie",
-			//		datatype: tableau.dataTypeEnum.dateTime
-			//	}
+			,
+					{
+					id: "tijdstipRegistratie",
+					datatype: tableau.dataTypeEnum.dateTime
+				}
 // <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js" type="text/javascript"></script>
 		];
 
@@ -49,8 +50,8 @@
 
 			// Iterate over the JSON object
 			for (var i = 0, len = feat.length; i < len; i++) {
-				//	var dateFormat = "DD-MM-YYYY";
-				//	var tijdstipRegistratie = moment(feat[i].tijdstipRegistratie.value).format(dateFormat);
+					var dateFormat = "DD-MM-YYYY";
+					var tijdstipRegistratie = moment(feat[i].tijdstipRegistratie.value).format(dateFormat);
 //
 				var coordRD = feat[i].geometry.coordinates;
 				var coordWGS =  proj4('EPSG:28992', 'WGS84', coordRD);
@@ -66,8 +67,8 @@
 					"status": feat[i].properties.status,
 				//	"omschrijving": feat[i].omschrijving,
 					"location": wkt_data.toJson()
-					//,
-					//	"tijdstipRegistratie": tijdstipRegistratie
+					,
+					"tijdstipRegistratie": tijdstipRegistratie
 				});
 			}
 			tableau.log(tableData);
