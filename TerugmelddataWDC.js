@@ -38,9 +38,9 @@
 
 	//download the data
 	myConnector.getData = function(table, doneCallback) {
-			var dateObj = JSON.parse(tableau.connectionData),
-			dateString = "starttime=" + dateObj.startDate,
-			apiCall = "https://leonhertgers.github.io/Live-Data-in-een-dashboard/data.json" + dateString;
+			var Basisregistratie_keus = JSON.parse(tableau.connectionData),
+			keuzeString = "starttime=" + Basisregistratie_keus.keuze,
+			apiCall = "https://leonhertgers.github.io/Live-Data-in-een-dashboard/data.json" + keuzeString;
 			$.getJSON(apiCall, function(resp) {
 			
 			var feat = resp.features;
@@ -82,8 +82,8 @@
 
 $(document).ready(function() {
 	$("#submitButton").click(function() {
-		var dateObj = {
-			startDate: $('#start-date-one').val().trim(),
+		var Basisregistratie_keus = {
+			keuze: $('#Basisregistratie_keuze').val().trim(),
 
 		};
 
