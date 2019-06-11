@@ -80,10 +80,12 @@
 					"bronhoudercode": feat[i].properties.bronhoudercode,
 					"meldingsnummer": feat[i].properties.meldingsNummer,
 			//		"tijdstipRegistratie": tijdstipRegistratie,
-					"tijdstipStatusWijziging": (function() {
-                        if (typeof feat[i].tijdstipStatusWijziging == 'undefined') {
-                            return moment().format(dateFormat);
-                        } else { return moment(feat[i].tijdstipStatusWijziging.value).format(dateFormat);
+					"tijdstipStatusWijziging":
+
+						(function() {
+                        if (moment(feat[i].tijdstipStatusWijziging).isValid()) {
+							return moment(feat[i].tijdstipStatusWijziging.value).format(dateFormat);
+                        } else { return moment("");
                         }})(),
 					"status": feat[i].properties.status,
 					"omschrijving": feat[i].properties.omschrijving,
