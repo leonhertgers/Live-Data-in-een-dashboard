@@ -82,7 +82,7 @@
 			//		"tijdstipRegistratie": tijdstipRegistratie,
 					"tijdstipStatusWijziging":
 						(function() {
-                        if (typeof feat[i].tijdstipStatusWijziging.isValid()) {
+                        if (typeof moment(feat[i].tijdstipStatusWijziging).isValid()) {
 							return tijdstipStatuswijziging;
                         } else { return moment("");
                         }})(),
