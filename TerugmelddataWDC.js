@@ -35,7 +35,7 @@
 		}, {
 			id: "tijdstipStatusWijziging",
 			alias: "time 1",
-			dataType: tableau.dataTypeEnum.dateTime
+			dataType: tableau.dataTypeEnum.date
 		}, {
 			id: "location",
 			dataType: tableau.dataTypeEnum.geometry
@@ -59,7 +59,7 @@
 
 			// Iterate over the JSON object
 			for (var i = 0, len = feat.length; i < len; i++) {
-                var dateFormat = "Y-MM-DD HH:mm:ss";
+                var dateFormat = "Y-MM-DD";
            //     var tijdstipStatusWijziging = moment(feat[i].tijdstipStatusWijziging.value).format(dateFormat);
 
 				var coordRD = feat[i].geometry.coordinates;
