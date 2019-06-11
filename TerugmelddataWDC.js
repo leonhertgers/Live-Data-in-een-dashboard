@@ -33,6 +33,10 @@
 			alias: "Description",
 			dataType: tableau.dataTypeEnum.string
 		}, {
+			id: "tijdstipRegistratie",
+			alias: "time 1",
+			dataType: tableau.dataTypeEnum.date
+		}, {
 			id: "tijdstipStatusWijziging",
 			alias: "time 1",
 			dataType: tableau.dataTypeEnum.date
@@ -60,7 +64,7 @@
 			// Iterate over the JSON object
 			for (var i = 0, len = feat.length; i < len; i++) {
                 var dateFormat = "Y-MM-DD";
-           //     var tijdstipStatusWijziging = moment(feat[i].tijdstipStatusWijziging.value).format(dateFormat);
+                var tijdstipRegistratie = moment(feat[i].tijdstipRegistratie.value).format(dateFormat);
 
 				var coordRD = feat[i].geometry.coordinates;
 				var coordWGS =  proj4('EPSG:28992', 'WGS84', coordRD);
@@ -73,11 +77,11 @@
 					"bronhoudernaam": feat[i].properties.bronhoudernaam,
 					"bronhoudercode": feat[i].properties.bronhoudercode,
 					"meldingsnummer": feat[i].properties.meldingsNummer,
+					"tijdstipregistratie": tijdstipRegistratie,
 					"tijdstipStatusWijziging": (function() {
-                        if (typeof feat[i].tijdstipStatusWijziging.isValid()) {
-							return moment(feat[i].tijdstipStatusWijziging.value).format(dateFormat);
-                        } else {
-							return moment().format(dateFormat);
+                        if (typeof feat[i].tijdstipStatusWijziging == 'undefined') {
+                            return moment().format(dateFormat);
+                        } else { return moment(feat[i].tijdstipStatusWijziging.value).format(dateFormat);
                         }})(),
 
 
