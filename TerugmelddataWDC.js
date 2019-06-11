@@ -81,9 +81,8 @@
 					"meldingsnummer": feat[i].properties.meldingsNummer,
 			//		"tijdstipRegistratie": tijdstipRegistratie,
 					"tijdstipStatusWijziging":
-
 						(function() {
-                        if (typeof moment(feat[i].tijdstipStatusWijziging).isValid()) {
+                        if (typeof tijdstipStatuswijziging.isValid()) {
 							return tijdstipStatuswijziging;
                         } else { return moment("");
                         }})(),
