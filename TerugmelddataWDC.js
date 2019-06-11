@@ -32,13 +32,15 @@
 			id: "omschrijving",
 			alias: "Description",
 			dataType: tableau.dataTypeEnum.string
-		}, {
-			id: "tijdstipRegistratie",
-			alias: "time 2",
-			dataType: tableau.dataTypeEnum.date
-		}, {
+		},
+			//{
+		//	id: "tijdstipRegistratie",
+		//	alias: "time 2",
+		//	dataType: tableau.dataTypeEnum.date
+	//	},
+			{
 			id: "tijdstipStatusWijziging",
-			alias: "time 1",
+			alias: "Status Wijziging",
 			dataType: tableau.dataTypeEnum.date
 		}, {
 			id: "location",
@@ -63,7 +65,7 @@
 
 			// Iterate over the JSON object
 			for (var i = 0, len = feat.length; i < len; i++) {
-                var dateFormat = "Y-MM-DD";
+                var dateFormat = "YYYY-MM-DD";
        //         var tijdstipRegistratie = moment(feat[i].tijdstipRegistratie.value).format(dateFormat);
 
 				var coordRD = feat[i].geometry.coordinates;
@@ -80,7 +82,7 @@
 			//		"tijdstipRegistratie": tijdstipRegistratie,
 					"tijdstipStatusWijziging": (function() {
                         if (typeof feat[i].tijdstipStatusWijziging == null) {
-                            return moment().format(dateFormat);
+                            return null;
                         } else { return moment(feat[i].tijdstipStatusWijziging.value).format(dateFormat);
                         }})(),
 
