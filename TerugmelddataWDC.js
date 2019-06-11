@@ -82,12 +82,9 @@
 			//		"tijdstipRegistratie": tijdstipRegistratie,
 					"tijdstipStatusWijziging": (function() {
                         if (typeof feat[i].tijdstipStatusWijziging == null) {
-                            return null;
+                            return moment().format(dateFormat);
                         } else { return moment(feat[i].tijdstipStatusWijziging.value).format(dateFormat);
                         }})(),
-
-
-
 					"status": feat[i].properties.status,
 					"omschrijving": feat[i].properties.omschrijving,
 					"location": wkt_data.toJson()
