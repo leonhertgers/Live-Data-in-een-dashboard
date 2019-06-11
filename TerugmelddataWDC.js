@@ -35,7 +35,7 @@
 		}, {
 			id: "tijdstipStatusWijziging",
 			alias: "time 1",
-			dataType: tableau.dataTypeEnum.string
+			dataType: tableau.dataTypeEnum.dateTime
 		}, {
 			id: "location",
 			dataType: tableau.dataTypeEnum.geometry
@@ -59,6 +59,8 @@
 
 			// Iterate over the JSON object
 			for (var i = 0, len = feat.length; i < len; i++) {
+                var dateFormat = "Y-MM-DD HH:mm:ss";
+           //     var tijdstipStatusWijziging = moment(feat[i].tijdstipStatusWijziging.value).format(dateFormat);
 
 				var coordRD = feat[i].geometry.coordinates;
 				var coordWGS =  proj4('EPSG:28992', 'WGS84', coordRD);
@@ -71,7 +73,14 @@
 					"bronhoudernaam": feat[i].properties.bronhoudernaam,
 					"bronhoudercode": feat[i].properties.bronhoudercode,
 					"meldingsnummer": feat[i].properties.meldingsNummer,
-					"tijdstipStatusWijziging": feat[i].properties.tijdstipStatusWijziging,
+					"tijdstipStatusWijziging": (function() {
+                        if (typeof feat[i].tijdstipStatusWijziging == 'undefined') {
+                            return moment().format(dateFormat);
+                        } else { return moment(feat[i].tijdstipStatusWijziging.value).format(dateFormat);
+                        }})(),
+
+
+
 					"status": feat[i].properties.status,
 					"omschrijving": feat[i].properties.omschrijving,
 					"location": wkt_data.toJson()
