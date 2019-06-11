@@ -74,9 +74,10 @@
 					"bronhoudercode": feat[i].properties.bronhoudercode,
 					"meldingsnummer": feat[i].properties.meldingsNummer,
 					"tijdstipStatusWijziging": (function() {
-                        if (typeof feat[i].tijdstipStatusWijziging == null) {
-                            return null;
-                        } else { return moment(feat[i].tijdstipStatusWijziging.value).format(dateFormat);
+                        if (typeof feat[i].tijdstipStatusWijziging.isValid()) {
+							return moment(feat[i].tijdstipStatusWijziging.value).format(dateFormat);
+                        } else {
+							return moment().format(dateFormat);
                         }})(),
 
 
