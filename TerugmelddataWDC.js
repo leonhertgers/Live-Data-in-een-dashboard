@@ -66,7 +66,7 @@
 			// Iterate over the JSON object
 			for (var i = 0, len = feat.length; i < len; i++) {
                 var dateFormat = "YYYY-MM-DD";
-                var tijdstipStatuswijziging = moment(feat[i].tijdstipStatusWijziging.value).format(dateFormat);
+                var tijdstipStatuswijziging = moment(feat[i].tijdstipStatusWijziging).format(dateFormat);
 
 				var coordRD = feat[i].geometry.coordinates;
 				var coordWGS =  proj4('EPSG:28992', 'WGS84', coordRD);
