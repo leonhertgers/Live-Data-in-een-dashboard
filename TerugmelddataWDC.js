@@ -79,7 +79,7 @@
 					"meldingsnummer": feat[i].properties.meldingsNummer,
 			//		"tijdstipRegistratie": tijdstipRegistratie,
 					"tijdstipStatusWijziging": (function() {
-                        if (typeof feat[i].tijdstipStatusWijziging == 'undefined') {
+                        if (typeof feat[i].tijdstipStatusWijziging == null) {
                             return moment().format(dateFormat);
                         } else { return moment(feat[i].tijdstipStatusWijziging.value).format(dateFormat);
                         }})(),
