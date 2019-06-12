@@ -31,12 +31,11 @@
 		}, {
 			id: "omschrijving",
 			dataType: tableau.dataTypeEnum.string
+		}, {
+			id: "tijdstipRegistratie",
+			alias: "Date registratie",
+			dataType: tableau.dataTypeEnum.date
 		},
-			//{
-		//	id: "tijdstipRegistratie",
-		//	alias: "time 2",
-		//	dataType: tableau.dataTypeEnum.date
-	//	},
 			{
 			id: "tijdstipStatusWijziging",
 			alias: "Date status wijziging",
@@ -64,8 +63,8 @@
 
 			// Iterate over the JSON object
 			for (var i = 0, len = feat.length; i < len; i++) {
-                var dateFormat = "YYYY-MM-DD";
-			//	var tijdstipRegistratie = moment(feat[i].tijdstipRegistratie.value).format(dateFormat);
+                var dateFormat = "DD-MM-YYYY";
+				var tijdstipRegistratie = moment(feat[i].properties.tijdstipRegistratie).format(dateFormat);
            //     var tijdstipStatuswijziging = moment(feat[i].tijdstipStatusWijziging.value).format(dateFormat);
 
 				var tijdstipStatuswijziging = moment(feat[i].properties.tijdstipStatusWijziging).format(dateFormat);
@@ -80,7 +79,7 @@
 					"bronhoudernaam": feat[i].properties.bronhoudernaam,
 					"bronhoudercode": feat[i].properties.bronhoudercode,
 					"meldingsnummer": feat[i].properties.meldingsNummer,
-			//		"tijdstipRegistratie": tijdstipRegistratie,
+					"tijdstipRegistratie": tijdstipRegistratie,
 					"tijdstipStatusWijziging":
 						(function() {
                         if (typeof feat[i].tijdstipStatusWijziging == null) {
