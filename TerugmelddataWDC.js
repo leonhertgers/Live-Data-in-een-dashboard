@@ -6,7 +6,7 @@
 	//the fields I surely need are:
 	// - tijdstipStatusWijziging
 	// - tijdstipWijziging
-	// - tijdstipRegistratie
+	// - tijdstipRegistratie3
 
 	myConnector.getSchema = function (schemaCallback) {
 		var cols = [{
