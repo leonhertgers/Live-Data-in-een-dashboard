@@ -64,7 +64,7 @@
 			// Iterate over the JSON object
 			for (var i = 0, len = feat.length; i < len; i++) {
                 var dateFormat = "DD-MM-YYYY";
-				var tijdstipRegistratie = moment(feat[i].properties.tijdstipRegistratie).format(dateFormat);
+				var registratie = moment(feat[i].properties.tijdstipRegistratie).format(dateFormat);
            //     var tijdstipStatuswijziging = moment(feat[i].tijdstipStatusWijziging.value).format(dateFormat);
 
 				var tijdstipStatuswijziging = moment(feat[i].properties.tijdstipStatusWijziging).format(dateFormat);
@@ -79,7 +79,7 @@
 					"bronhoudernaam": feat[i].properties.bronhoudernaam,
 					"bronhoudercode": feat[i].properties.bronhoudercode,
 					"meldingsnummer": feat[i].properties.meldingsNummer,
-					"tijdstipRegistratie": tijdstipRegistratie,
+					"tijdstipRegistratie": registratie,
 					"tijdstipStatusWijziging":
 						(function() {
                         if (typeof feat[i].tijdstipStatusWijziging == null) {
