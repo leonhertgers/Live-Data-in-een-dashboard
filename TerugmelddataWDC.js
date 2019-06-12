@@ -21,9 +21,9 @@
 			alias: "bronhoudercode",
 			dataType: tableau.dataTypeEnum.string
 		}, {
-			id: "meldingsnummer",
+			id: "meldingsNummer",
 			alias: "meldingsnummer",
-			dataType: tableau.dataTypeEnum.int
+			dataType: tableau.dataTypeEnum.string
 		}, {
 			id: "status",
 			dataType: tableau.dataTypeEnum.string
@@ -76,7 +76,7 @@
 					"basisregistratie": feat[i].properties.basisregistratie,
 					"bronhoudernaam": feat[i].properties.bronhoudernaam,
 					"bronhoudercode": feat[i].properties.bronhoudercode,
-					"meldingsnummer": feat[i].properties.meldingsNummer,
+					"meldingsNummer": feat[i].properties.meldingsNummer,
 					"tijdstipRegistratie": registratie,
 					"tijdstipStatusWijziging":
 						(function() {
