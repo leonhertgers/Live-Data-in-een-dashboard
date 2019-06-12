@@ -63,10 +63,10 @@
 			// Iterate over the JSON object
 			for (var i = 0, len = feat.length; i < len; i++) {
                 var dateFormat = "YYYY-MM-DD";
-				var registratie = moment(feat[i].properties.tijdstipRegistratie).format(dateFormat);
            //     var tijdstipStatuswijziging = moment(feat[i].tijdstipStatusWijziging.value).format(dateFormat);
 
 				var tijdstipStatuswijziging = moment(feat[i].properties.tijdstipStatusWijziging).format(dateFormat);
+			//	var registratie = moment(feat[i].properties.tijdstipRegistratie).format(dateFormat);
 				var coordRD = feat[i].geometry.coordinates;
 				var coordWGS =  proj4('EPSG:28992', 'WGS84', coordRD);
 				var geoJson = '{"type":"Point","coordinates":' + JSON.stringify(coordWGS) + '}';
@@ -78,7 +78,7 @@
 					"bronhoudernaam": feat[i].properties.bronhoudernaam,
 					"bronhoudercode": feat[i].properties.bronhoudercode,
 					"meldingsnummer": feat[i].properties.meldingsNummer,
-					"tijdstipRegistratie": registratie,
+				//	"tijdstipRegistratie": registratie,
 					"tijdstipStatusWijziging":
 						(function() {
                         if (typeof feat[i].tijdstipStatusWijziging == null) {
