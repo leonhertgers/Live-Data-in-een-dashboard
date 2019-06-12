@@ -7,7 +7,6 @@
 	// - tijdstipStatusWijziging
 	// - tijdstipWijziging
 	// - tijdstipRegistratie
-	// - meldingsnummer
 
 	myConnector.getSchema = function (schemaCallback) {
 		var cols = [{
