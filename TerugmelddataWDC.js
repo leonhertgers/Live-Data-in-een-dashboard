@@ -78,7 +78,7 @@
 					"bronhoudernaam": feat[i].properties.bronhoudernaam,
 					"bronhoudercode": feat[i].properties.bronhoudercode,
 					"meldingsnummer": feat[i].properties.meldingsNummer,
-				//	"tijdstipRegistratie": registratie,
+					"tijdstipRegistratie": moment(feat[i].properties.tijdstipRegistratie).format(dateFormat),
 					"tijdstipStatusWijziging":
 						(function() {
                         if (typeof feat[i].tijdstipStatusWijziging == null) {
