@@ -30,7 +30,6 @@
 			dataType: tableau.dataTypeEnum.string
 		}, {
 			id: "omschrijving",
-			alias: "Description",
 			dataType: tableau.dataTypeEnum.string
 		},
 			//{
@@ -40,7 +39,7 @@
 	//	},
 			{
 			id: "tijdstipStatusWijziging",
-			alias: "Status Wijziging",
+			alias: "Date status wijziging",
 			dataType: tableau.dataTypeEnum.date
 		}, {
 			id: "location",
@@ -67,8 +66,9 @@
 			for (var i = 0, len = feat.length; i < len; i++) {
                 var dateFormat = "YYYY-MM-DD";
 			//	var tijdstipRegistratie = moment(feat[i].tijdstipRegistratie.value).format(dateFormat);
-                var tijdstipStatuswijziging = moment(feat[i].tijdstipStatusWijziging.value).format(dateFormat);
+           //     var tijdstipStatuswijziging = moment(feat[i].tijdstipStatusWijziging.value).format(dateFormat);
 
+				var tijdstipStatuswijziging = moment(feat[i].properties.tijdstipStatusWijziging).format(dateFormat);
 				var coordRD = feat[i].geometry.coordinates;
 				var coordWGS =  proj4('EPSG:28992', 'WGS84', coordRD);
 				var geoJson = '{"type":"Point","coordinates":' + JSON.stringify(coordWGS) + '}';
