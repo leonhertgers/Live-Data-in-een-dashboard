@@ -23,7 +23,7 @@
 		}, {
 			id: "meldingsnummer",
 			alias: "meldingsnummer",
-			dataType: tableau.dataTypeEnum.string
+			dataType: tableau.dataTypeEnum.int
 		}, {
 			id: "status",
 			dataType: tableau.dataTypeEnum.string
