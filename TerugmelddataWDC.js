@@ -62,7 +62,7 @@
 
 			// Iterate over the JSON object
 			for (var i = 0, len = feat.length; i < len; i++) {
-                var dateFormat = "DD-MM-YYYY";
+                var dateFormat = "YYYY-MM-DD";
 				var registratie = moment(feat[i].properties.tijdstipRegistratie).format(dateFormat);
            //     var tijdstipStatuswijziging = moment(feat[i].tijdstipStatusWijziging.value).format(dateFormat);
 
