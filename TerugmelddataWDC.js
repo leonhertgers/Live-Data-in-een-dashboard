@@ -1,12 +1,8 @@
+
+
 (function () {
 	//Create the connector
 	var myConnector = tableau.makeConnector();
-
-
-	//the fields I surely need are:
-	// - tijdstipStatusWijziging
-	// - tijdstipWijziging
-	// - tijdstipRegistratie3
 
 	myConnector.getSchema = function (schemaCallback) {
 		var cols = [{
@@ -62,7 +58,8 @@
 
 			// Iterate over the JSON object
 			for (var i = 0, len = feat.length; i < len; i++) {
-                var dateFormat = "YYYY-MM-DD";
+        //        var dateFormat = "YYYY-MM-DD";
+				var dateFormat = 'MMMM Do YYYY, h:mm:ss a';
 				var tijdstipStatuswijziging = moment(feat[i].properties.tijdstipStatusWijziging).format(dateFormat);
 				var registratie = moment(feat[i].properties.tijdstipRegistratie).format(dateFormat);
 
