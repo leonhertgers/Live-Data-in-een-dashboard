@@ -29,12 +29,12 @@
 		}, {
 			id: "tijdstipRegistratie",
 			alias: "Date registratie",
-			dataType: tableau.dataTypeEnum.date
+			dataType: tableau.dataTypeEnum.datetime
 		},
 			{
 			id: "tijdstipStatusWijziging",
 			alias: "Date status wijziging",
-			dataType: tableau.dataTypeEnum.date
+			dataType: tableau.dataTypeEnum.datetime
 		}, {
 			id: "location",
 			dataType: tableau.dataTypeEnum.geometry
@@ -59,7 +59,8 @@
 			// Iterate over the JSON object
 			for (var i = 0, len = feat.length; i < len; i++) {
         //        var dateFormat = "YYYY-MM-DD";
-				var dateFormat = 'MMMM Do YYYY, h:mm:ss a';
+			//	var dateFormat = 'MMMM Do YYYY, h:mm:ss a';
+				var dateFormat = "Y-MM-DD HH:mm:ss";
 				var tijdstipStatuswijziging = moment(feat[i].properties.tijdstipStatusWijziging).format(dateFormat);
 				var registratie = moment(feat[i].properties.tijdstipRegistratie).format(dateFormat);
 
