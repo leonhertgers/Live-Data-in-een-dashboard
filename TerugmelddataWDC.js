@@ -13,6 +13,11 @@
 			alias: "bronhoudernaam",
 			dataType: tableau.dataTypeEnum.string
 		}, {
+			id: "locatielink",
+			alias: "locatielink",
+			dataType: tableau.dataTypeEnum.string
+		},
+			{
 			id: "bronhoudercode",
 			alias: "bronhoudercode",
 			dataType: tableau.dataTypeEnum.string
@@ -52,7 +57,9 @@
 	//download the data
 	myConnector.getData = function(table, doneCallback) {
 		$.getJSON("https://leonhertgers.github.io/Live-Data-in-een-dashboard/terugmeldingen_update.json", function(resp) {
-			var feat = resp.features;
+		//	$.getJSON("https://api.acceptatie.kadaster.nl/tms/v1/terugmeldingen?apikey=l71c0911dd8fe14be1abba40a2f4ba3e69", function(resp) {
+
+				var feat = resp.features;
 			tableData = [];
 			proj4.defs("EPSG:28992","+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.417,50.3319,465.552,-0.398957,0.343988,-1.8774,4.0725 +units=m +no_defs");
 
@@ -63,7 +70,6 @@
 				var dateFormat = "Y-MM-DD HH:mm:ss";
 				var tijdstipStatuswijziging = moment(feat[i].properties.tijdstipStatusWijziging).format(dateFormat);
 				var registratie = moment(feat[i].properties.tijdstipRegistratie).format(dateFormat);
-
 				var coordRD = feat[i].geometry.coordinates;
 				var coordWGS =  proj4('EPSG:28992', 'WGS84', coordRD);
 				var geoJson = '{"type":"Point","coordinates":' + JSON.stringify(coordWGS) + '}';
@@ -73,6 +79,7 @@
 				tableData.push({
 					"basisregistratie": feat[i].properties.basisregistratie,
 					"bronhoudernaam": feat[i].properties.bronhoudernaam,
+					"locatielink" : feat[i].properties.locatielink,
 					"bronhoudercode": feat[i].properties.bronhoudercode,
 					"meldingsNummer": feat[i].properties.meldingsNummer,
 					"tijdstipRegistratie": registratie,
