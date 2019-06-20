@@ -13,7 +13,7 @@
 			alias: "bronhoudernaam",
 			dataType: tableau.dataTypeEnum.string
 		}, {
-			id: "locatielink",
+			id: "locatieLink",
 			alias: "locatielink",
 			dataType: tableau.dataTypeEnum.string
 		},
@@ -79,7 +79,7 @@
 				tableData.push({
 					"basisregistratie": feat[i].properties.basisregistratie,
 					"bronhoudernaam": feat[i].properties.bronhoudernaam,
-					"locatielink" : feat[i].properties.locatielink,
+					"locatieLink" : feat[i].properties.locatieLink,
 					"bronhoudercode": feat[i].properties.bronhoudercode,
 					"meldingsNummer": feat[i].properties.meldingsNummer,
 					"tijdstipRegistratie": registratie,
