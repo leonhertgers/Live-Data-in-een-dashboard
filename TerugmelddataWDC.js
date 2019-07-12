@@ -107,7 +107,8 @@
 $(document).ready(function () {
 	$("#submitButton").click(function () {
 		tableau.connectionName = "BAG Terugmelddata";
-		tableau.submit();
+		setTimeout(function(){tableau.submit()}, 3000);
+		//tableau.submit();
 	});
 });
 
